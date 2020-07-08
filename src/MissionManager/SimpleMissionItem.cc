@@ -115,7 +115,7 @@ SimpleMissionItem::SimpleMissionItem(PlanMasterController* masterController, boo
             break;
         }
     }
-
+//MACE? mission altitude
     _isCurrentItem = missionItem.isCurrentItem();
     _altitudeFact.setRawValue(specifiesAltitude() ? _missionItem._param7Fact.rawValue() : qQNaN());
     _amslAltAboveTerrainFact.setRawValue(qQNaN());

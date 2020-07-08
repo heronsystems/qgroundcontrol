@@ -1044,7 +1044,7 @@ void Vehicle::_handleStatusText(mavlink_message_t& message)
         _chunkedStatusTextCompleted(message.compid);
     }
 }
-
+//MACE?
 void Vehicle::_handleVfrHud(mavlink_message_t& message)
 {
     mavlink_vfr_hud_t vfrHud;
@@ -1055,7 +1055,7 @@ void Vehicle::_handleVfrHud(mavlink_message_t& message)
     _climbRateFact.setRawValue(qIsNaN(vfrHud.climb) ? 0 : vfrHud.climb);
     _throttlePctFact.setRawValue(static_cast<int16_t>(vfrHud.throttle));
 }
-
+//MACE not sure how this is used
 void Vehicle::_handleEstimatorStatus(mavlink_message_t& message)
 {
     mavlink_estimator_status_t estimatorStatus;
@@ -1113,7 +1113,7 @@ void Vehicle::_handleEstimatorStatus(mavlink_message_t& message)
     };
 #endif
 }
-
+//MACE? distance sensor
 void Vehicle::_handleDistanceSensor(mavlink_message_t& message)
 {
     mavlink_distance_sensor_t distanceSensor;
@@ -1165,6 +1165,7 @@ void Vehicle::_handleDistanceSensor(mavlink_message_t& message)
 #pragma warning(push, 0)
 #endif
 
+//MACE? attitude
 void Vehicle::_handleAttitudeTarget(mavlink_message_t& message)
 {
     mavlink_attitude_target_t attitudeTarget;
@@ -1182,7 +1183,7 @@ void Vehicle::_handleAttitudeTarget(mavlink_message_t& message)
     _setpointFactGroup.pitchRate()->setRawValue(qRadiansToDegrees(attitudeTarget.body_pitch_rate));
     _setpointFactGroup.yawRate()->setRawValue(qRadiansToDegrees(attitudeTarget.body_yaw_rate));
 }
-
+//MACE? attitude
 void Vehicle::_handleAttitudeWorker(double rollRadians, double pitchRadians, double yawRadians)
 {
     double roll, pitch, yaw;
@@ -1218,6 +1219,7 @@ void Vehicle::_handleAttitude(mavlink_message_t& message)
     _handleAttitudeWorker(attitude.roll, attitude.pitch, attitude.yaw);
 }
 
+//MACE? attitude rates
 void Vehicle::_handleAttitudeQuaternion(mavlink_message_t& message)
 {
     _receivingAttitudeQuaternion = true;
@@ -1295,7 +1297,7 @@ void Vehicle::_handleGlobalPositionInt(mavlink_message_t& message)
         emit coordinateChanged(_coordinate);
     }
 }
-
+//MACE? various vehicle traits
 void Vehicle::_handleHighLatency2(mavlink_message_t& message)
 {
     mavlink_high_latency2_t highLatency2;
@@ -1375,7 +1377,7 @@ void Vehicle::_handleHighLatency2(mavlink_message_t& message)
         emit unhealthySensorsChanged();
     }
 }
-
+//MACE? altitude
 void Vehicle::_handleAltitude(mavlink_message_t& message)
 {
     mavlink_altitude_t altitude;
@@ -1692,8 +1694,8 @@ void Vehicle::_handleHomePosition(mavlink_message_t& message)
                                     homePos.altitude / 1000.0);
     _setHomePosition(newHomePosition);
 }
-
-void Vehicle::_updateArmed(bool armed)
+//MACE? armed status
+Vehicle::_updateArmed(bool armed)
 {
     if (_armed != armed) {
         _armed = armed;
@@ -3656,7 +3658,7 @@ const char* VehicleGPSFactGroup::_vdopFactName =                "vdop";
 const char* VehicleGPSFactGroup::_courseOverGroundFactName =    "courseOverGround";
 const char* VehicleGPSFactGroup::_countFactName =               "count";
 const char* VehicleGPSFactGroup::_lockFactName =                "lock";
-
+//MACE? GPS info
 VehicleGPSFactGroup::VehicleGPSFactGroup(QObject* parent)
     : FactGroup(1000, ":/json/Vehicle/GPSFact.json", parent)
     , _latFact              (0, _latFactName,               FactMetaData::valueTypeDouble)

@@ -30,7 +30,7 @@ RallyPoint::RallyPoint(const QGeoCoordinate& coordinate, QObject* parent)
 
     _factSetup();
 }
-
+//MACE? waypoints
 RallyPoint::RallyPoint(const RallyPoint& other, QObject* parent)
     : QObject(parent)
     , _dirty(false)
@@ -83,7 +83,7 @@ void RallyPoint::_cacheFactMetadata() {
         _metaDataMap = FactMetaData::createMapFromJsonFile(QStringLiteral(":/json/RallyPoint.FactMetaData.json"), nullptr /* metaDataParent */);
     }
 }
-
+//MACE? coordinates
 void RallyPoint::setCoordinate(const QGeoCoordinate& coordinate)
 {
     if (coordinate != this->coordinate()) {

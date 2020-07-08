@@ -932,7 +932,7 @@ void QGCApplication::_onGPSDisconnect()
 {
     _gpsRtkFactGroup->connected()->setRawValue(false);
 }
-
+//MACE?
 void QGCApplication::_gpsSurveyInStatus(float duration, float accuracyMM,  double latitude, double longitude, float altitude, bool valid, bool active)
 {
     _gpsRtkFactGroup->currentDuration()->setRawValue(duration);

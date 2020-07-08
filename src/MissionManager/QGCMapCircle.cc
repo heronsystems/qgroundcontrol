@@ -30,7 +30,7 @@ QGCMapCircle::QGCMapCircle(QObject* parent)
 {
     _init();
 }
-
+//MACE? mapcircle
 QGCMapCircle::QGCMapCircle(const QGeoCoordinate& center, double radius, bool showRotation, bool clockwiseRotation, QObject* parent)
     : QObject           (parent)
     , _dirty            (false)
